@@ -10,6 +10,7 @@ import Foundation
 import RealmSwift
 
 class AnimeInfo: Object {
+    //The variables we are saving to the realm file
     @objc dynamic var Name: String = ""
     @objc dynamic var ImageString: String = ""
     @objc dynamic var Episode: Int = 0

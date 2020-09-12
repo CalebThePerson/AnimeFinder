@@ -9,9 +9,24 @@
 import UIKit
 
 class MainView: UIViewController {
+    
+    //MARK: - The IB Outlets
+    @IBOutlet weak var AnimeNameLabel: UILabel!
+    @IBOutlet weak var ImageView: UIImageView!
+    @IBOutlet weak var DescriptionBox: UILabel!
+    @IBOutlet weak var EpisodeLabel: UILabel!
+    
+    
+    //MARK: - Variables
+    var Anime : AnimeInfo?
+
+    
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        AssingingVariables()
 
         // Do any additional setup after loading the view.
     }
@@ -27,4 +42,20 @@ class MainView: UIViewController {
     }
     */
 
+}
+
+extension MainView {
+    func AssingingVariables() {
+        if let TheAnime = Anime {
+            AnimeNameLabel.text = TheAnime.Name
+            EpisodeLabel.text = "Episode: \(TheAnime.Episode)"
+            ImageView.image = convertBase64ToImage(TheAnime.ImageString)
+        }
+    }
+    
+    func convertBase64ToImage(_ str: String) -> UIImage {
+        let dataDecoded : Data = Data(base64Encoded: str, options: .ignoreUnknownCharacters)!
+        let decodedimage = UIImage(data: dataDecoded)
+        return decodedimage!
+    }
 }
