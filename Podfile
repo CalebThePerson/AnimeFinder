@@ -9,6 +9,6 @@ target 'AnimeFinder' do
    pod 'Alamofire', '~> 5.2'
 pod 'RealmSwift'
       pod 'SwiftyJSON'
-
+pod 'Apollo', '0.33.0-beta1'
 
 end
