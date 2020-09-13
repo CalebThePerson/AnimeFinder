@@ -19,13 +19,14 @@ class MainView: UIViewController {
     
     //MARK: - Variables
     var Anime : AnimeInfo?
-
+    var AniLIst = AniListAPI()
     
 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //Testing
+        AniLIst.ObtainData(AnimeID: 21857)
         AssingingVariables()
 
         // Do any additional setup after loading the view.

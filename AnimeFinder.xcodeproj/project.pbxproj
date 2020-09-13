@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		9E1EC2710D3D87FA9A4A19B1 /* Pods_AnimeFinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 55886D1A45FF8F5921F6A6B0 /* Pods_AnimeFinder.framework */; };
+		C3630E2D250D7AE8000EBCAC /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = C3630E2C250D7AE8000EBCAC /* schema.json */; };
+		C3630E30250D7B03000EBCAC /* GraphqlQuery.graphql in Resources */ = {isa = PBXBuildFile; fileRef = C3630E2F250D7B03000EBCAC /* GraphqlQuery.graphql */; };
+		C3630E33250D7B70000EBCAC /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3630E32250D7B6F000EBCAC /* API.swift */; };
+		C3630E35250D7C42000EBCAC /* AniListAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3630E34250D7C42000EBCAC /* AniListAPI.swift */; };
 		C3644CE825031E4D0075AD76 /* MainTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3644CE725031E4D0075AD76 /* MainTableView.swift */; };
 		C3644CEC25032FC50075AD76 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3644CEB25032FC50075AD76 /* MainView.swift */; };
 		C3644CF1250330760075AD76 /* PhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3644CEF250330760075AD76 /* PhotoCell.swift */; };
@@ -26,6 +30,10 @@
 		55886D1A45FF8F5921F6A6B0 /* Pods_AnimeFinder.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AnimeFinder.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5EF77640F785DE2DF82623FF /* Pods-AnimeFinder.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimeFinder.release.xcconfig"; path = "Target Support Files/Pods-AnimeFinder/Pods-AnimeFinder.release.xcconfig"; sourceTree = "<group>"; };
 		6908519F86CB693674B91790 /* Pods-AnimeFinder.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AnimeFinder.debug.xcconfig"; path = "Target Support Files/Pods-AnimeFinder/Pods-AnimeFinder.debug.xcconfig"; sourceTree = "<group>"; };
+		C3630E2C250D7AE8000EBCAC /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
+		C3630E2F250D7B03000EBCAC /* GraphqlQuery.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = GraphqlQuery.graphql; sourceTree = "<group>"; };
+		C3630E32250D7B6F000EBCAC /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		C3630E34250D7C42000EBCAC /* AniListAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AniListAPI.swift; sourceTree = "<group>"; };
 		C3644CE725031E4D0075AD76 /* MainTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableView.swift; sourceTree = "<group>"; };
 		C3644CEB25032FC50075AD76 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		C3644CEF250330760075AD76 /* PhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCell.swift; sourceTree = "<group>"; };
@@ -63,6 +71,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		C3630E2E250D7AF0000EBCAC /* GraphQL */ = {
+			isa = PBXGroup;
+			children = (
+				C3630E2F250D7B03000EBCAC /* GraphqlQuery.graphql */,
+			);
+			path = GraphQL;
+			sourceTree = "<group>";
+		};
 		C3644CE425031D910075AD76 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -84,7 +100,10 @@
 		C3644CE625031D9D0075AD76 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				C3630E32250D7B6F000EBCAC /* API.swift */,
+				C3630E34250D7C42000EBCAC /* AniListAPI.swift */,
 				C37516E125045B5100D74F6B /* TraceMoeApi.swift */,
+				C3630E2E250D7AF0000EBCAC /* GraphQL */,
 				C37516E525045D7500D74F6B /* SaveStuff */,
 			);
 			path = Model;
@@ -129,6 +148,7 @@
 		C3BFEA2024FF3E0400F5393B /* AnimeFinder */ = {
 			isa = PBXGroup;
 			children = (
+				C3630E2C250D7AE8000EBCAC /* schema.json */,
 				C3BFEA2124FF3E0400F5393B /* AppDelegate.swift */,
 				C3BFEA2324FF3E0400F5393B /* SceneDelegate.swift */,
 				C3644CE625031D9D0075AD76 /* Model */,
@@ -157,6 +177,7 @@
 			buildConfigurationList = C3BFEA3224FF3E0900F5393B /* Build configuration list for PBXNativeTarget "AnimeFinder" */;
 			buildPhases = (
 				A4658D387DBE7A21AC87ACD2 /* [CP] Check Pods Manifest.lock */,
+				C3630E31250D7B1B000EBCAC /* Creating Apollo GraphQL Api */,
 				C3BFEA1A24FF3E0400F5393B /* Sources */,
 				C3BFEA1B24FF3E0400F5393B /* Frameworks */,
 				C3BFEA1C24FF3E0400F5393B /* Resources */,
@@ -209,7 +230,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C3630E30250D7B03000EBCAC /* GraphqlQuery.graphql in Resources */,
 				C3644CF2250330760075AD76 /* PhotoCell.xib in Resources */,
+				C3630E2D250D7AE8000EBCAC /* schema.json in Resources */,
 				C3BFEA2E24FF3E0900F5393B /* LaunchScreen.storyboard in Resources */,
 				C3BFEA2B24FF3E0900F5393B /* Assets.xcassets in Resources */,
 				C3BFEA2924FF3E0400F5393B /* Main.storyboard in Resources */,
@@ -258,6 +281,26 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		C3630E31250D7B1B000EBCAC /* Creating Apollo GraphQL Api */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/AnimeFinder/**/*.graphql",
+			);
+			name = "Creating Apollo GraphQL Api";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				" $(SRCROOT)/AnimeFinder/API.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "SCRIPT_PATH=\"${PODS_ROOT}/Apollo/scripts\"\ncd \"${SRCROOT}/${TARGET_NAME}\"\n\"${SCRIPT_PATH}\"/run-bundled-codegen.sh codegen:generate --target=swift --includes=./**/*.graphql --localSchemaFile=\"schema.json\" API.swift\n\n\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -266,12 +309,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C37516E725045D9200D74F6B /* AnimeInfo.swift in Sources */,
+				C3630E35250D7C42000EBCAC /* AniListAPI.swift in Sources */,
 				C37516E925045DFD00D74F6B /* SaveAndSuch.swift in Sources */,
 				C37516E225045B5100D74F6B /* TraceMoeApi.swift in Sources */,
 				C3BFEA2224FF3E0400F5393B /* AppDelegate.swift in Sources */,
 				C3644CF1250330760075AD76 /* PhotoCell.swift in Sources */,
 				C3644CEC25032FC50075AD76 /* MainView.swift in Sources */,
 				C3644CE825031E4D0075AD76 /* MainTableView.swift in Sources */,
+				C3630E33250D7B70000EBCAC /* API.swift in Sources */,
 				C3BFEA2424FF3E0400F5393B /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -3,11 +3,11 @@ PODS:
   - Apollo (0.33.0-beta1):
     - Apollo/Core (= 0.33.0-beta1)
   - Apollo/Core (0.33.0-beta1)
-  - Realm (5.3.6):
-    - Realm/Headers (= 5.3.6)
-  - Realm/Headers (5.3.6)
-  - RealmSwift (5.3.6):
-    - Realm (= 5.3.6)
+  - Realm (5.4.0):
+    - Realm/Headers (= 5.4.0)
+  - Realm/Headers (5.4.0)
+  - RealmSwift (5.4.0):
+    - Realm (= 5.4.0)
   - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
@@ -27,8 +27,8 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
   Apollo: 0f1829567b454c3ab32ed93a7eea999c7b345599
-  Realm: cd400dd7e5b5bb5c8ae9842eecd73792369e6ec0
-  RealmSwift: 99a16dbdee5d6dfb3d91d56088a9f8c15c0871d1
+  Realm: 8949757d76e2451a53d727954c607e49c2542b77
+  RealmSwift: 0b7d7121e842724188123c6086831ae6d2952050
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
 PODFILE CHECKSUM: 56a5448063211ad698a7b257b2cab2ccfe7af98c
