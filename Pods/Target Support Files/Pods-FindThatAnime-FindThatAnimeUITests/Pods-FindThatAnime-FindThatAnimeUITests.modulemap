@@ -1,0 +1,6 @@
+framework module Pods_FindThatAnime_FindThatAnimeUITests {
+  umbrella header "Pods-FindThatAnime-FindThatAnimeUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
