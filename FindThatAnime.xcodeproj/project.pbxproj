@@ -24,6 +24,10 @@
 		C32FDC422516DFCF00244666 /* FloatingMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32FDC062516DE1800244666 /* FloatingMenu.swift */; };
 		C32FDC462516DFD100244666 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32FDC072516DE1800244666 /* ImageCell.swift */; };
 		C32FDC522516E07700244666 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = C32FDC512516E07700244666 /* schema.json */; };
+		C373CB3B251D57A400E0819F /* TestingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C373CB3A251D57A400E0819F /* TestingCell.swift */; };
+		C373CB40251D5B7D00E0819F /* TestingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C373CB3F251D5B7D00E0819F /* TestingView.swift */; };
+		C373CB45251D942800E0819F /* LoadingCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C373CB44251D942700E0819F /* LoadingCircle.swift */; };
+		C373CB51251DA19100E0819F /* TestingWithList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C373CB50251DA19100E0819F /* TestingWithList.swift */; };
 		E94050F69BCEB2DF227AFDE1 /* Pods_FindThatAnime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F52B39C8989677C5A8CB7823 /* Pods_FindThatAnime.framework */; };
 		F6E0FEDBD8D543D661606E07 /* Pods_FindThatAnimeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D14755FB531671CF8363FB8 /* Pods_FindThatAnimeTests.framework */; };
 /* End PBXBuildFile section */
@@ -76,6 +80,10 @@
 		C32FDC2F2516DF3A00244666 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		C32FDC342516DF3D00244666 /* TraceMoeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceMoeAPI.swift; sourceTree = "<group>"; };
 		C32FDC512516E07700244666 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
+		C373CB3A251D57A400E0819F /* TestingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingCell.swift; sourceTree = "<group>"; };
+		C373CB3F251D5B7D00E0819F /* TestingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingView.swift; sourceTree = "<group>"; };
+		C373CB44251D942700E0819F /* LoadingCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCircle.swift; sourceTree = "<group>"; };
+		C373CB50251DA19100E0819F /* TestingWithList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingWithList.swift; sourceTree = "<group>"; };
 		F52B39C8989677C5A8CB7823 /* Pods_FindThatAnime.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FindThatAnime.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -187,9 +195,11 @@
 		C32FDC042516DE1800244666 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				C373CB49251D965800E0819F /* TestingViews */,
 				C32FDC052516DE1800244666 /* ContentView.swift */,
 				C32FDC062516DE1800244666 /* FloatingMenu.swift */,
 				C32FDC072516DE1800244666 /* ImageCell.swift */,
+				C373CB44251D942700E0819F /* LoadingCircle.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -220,6 +230,16 @@
 				C32FDC292516DF2600244666 /* SaveAndSuch.swift */,
 			);
 			path = SaveStufff;
+			sourceTree = "<group>";
+		};
+		C373CB49251D965800E0819F /* TestingViews */ = {
+			isa = PBXGroup;
+			children = (
+				C373CB3F251D5B7D00E0819F /* TestingView.swift */,
+				C373CB3A251D57A400E0819F /* TestingCell.swift */,
+				C373CB50251DA19100E0819F /* TestingWithList.swift */,
+			);
+			path = TestingViews;
 			sourceTree = "<group>";
 		};
 		E1CECE9E5B56FF42DBCBFA51 /* Frameworks */ = {
@@ -495,12 +515,16 @@
 			files = (
 				C32FDC252516DF2500244666 /* AnimeInfo.swift in Sources */,
 				C32FDBCA2516DDD600244666 /* AppDelegate.swift in Sources */,
+				C373CB3B251D57A400E0819F /* TestingCell.swift in Sources */,
+				C373CB40251D5B7D00E0819F /* TestingView.swift in Sources */,
 				C32FDC462516DFD100244666 /* ImageCell.swift in Sources */,
 				C32FDC2A2516DF2600244666 /* SaveAndSuch.swift in Sources */,
 				C32FDC302516DF3A00244666 /* ImagePicker.swift in Sources */,
 				C32FDBCC2516DDD600244666 /* SceneDelegate.swift in Sources */,
 				C32FDC0B2516DE3100244666 /* ContentView.swift in Sources */,
 				C32FDC422516DFCF00244666 /* FloatingMenu.swift in Sources */,
+				C373CB51251DA19100E0819F /* TestingWithList.swift in Sources */,
+				C373CB45251D942800E0819F /* LoadingCircle.swift in Sources */,
 				C32FDC352516DF3D00244666 /* TraceMoeAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -675,6 +699,7 @@
 				DEVELOPMENT_TEAM = MMZA244CU5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = FindThatAnime/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -697,6 +722,7 @@
 				DEVELOPMENT_TEAM = MMZA244CU5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = FindThatAnime/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

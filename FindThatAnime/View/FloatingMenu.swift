@@ -20,7 +20,7 @@ struct FloatingMenu: View {
     @State private var ShowingImagePicker = false
     @State private var InputImage: UIImage?
     
-    let TraceAPI = TraceMoeAPI()
+    let TraceAPI: TraceMoeAPI
     
     
     var body: some View {
@@ -37,7 +37,7 @@ struct FloatingMenu: View {
 
                 }) {
                     MenuItem(icon: "plus")
-                }.sheet(isPresented: $ShowingImagePicker, onDismiss: LoadImage) {
+                }.sheet(isPresented: $ShowingImagePicker, onDismiss: {self.TraceAPI.CirclePresenting=true; LoadImage(); self.showMenuItem1=false;self.showMenuItem2=false;self.showMenuItem3=false }) {
                     ImagePicker(image: self.$InputImage)
                 }
             }
@@ -88,7 +88,7 @@ struct FloatingMenu: View {
 
 struct FloatingMenu_Previews: PreviewProvider {
     static var previews: some View {
-        FloatingMenu()
+        FloatingMenu(TraceAPI: TraceMoeAPI())
     }
 }
 

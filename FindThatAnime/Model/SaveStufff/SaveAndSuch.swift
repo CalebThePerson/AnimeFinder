@@ -12,9 +12,6 @@ import RealmSwift
 let realm = try! Realm()
 
 
-
-var TheAnimeList = RealmSwift.List<AnimeInfo>()
-
 func Save(Anime: AnimeInfo) {
     do {
         try realm.write {

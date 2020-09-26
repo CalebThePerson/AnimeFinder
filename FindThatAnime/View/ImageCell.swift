@@ -9,19 +9,24 @@ import SwiftUI
 
 struct ImageCell: View {
     
-    var ScreenSize: CGSize
+    var ScreenSize: CGSize {
+        didSet{
+            print(ScreenSize)
+        }
+    }
     var TheImage:UIImage
-    
     
     var body: some View {
         
-        var Newimage = UItoImage(with: TheImage)
-        
-        Image("\(Newimage)")
-            .resizable()
-            .aspectRatio(contentMode: .fill)
-            .frame(width: ScreenSize.width - 14, height: 140)
-            .clipped()
+        VStack {
+            Image(uiImage: TheImage)
+                .resizable()
+                .aspectRatio(contentMode: .fill)
+                .frame(width: ScreenSize.width, height: 140)
+                .clipped()
+        }
+        .frame(width: ScreenSize.width, height: 140)
+
         
     }
 }
@@ -29,15 +34,7 @@ struct ImageCell: View {
 struct ImageCell_Previews: PreviewProvider {
     static var previews: some View {
         GeometryReader { geometry in
-            ImageCell(ScreenSize: geometry.size, TheImage: UIImage(imageLiteralResourceName: "Cringe"))
+            ImageCell(ScreenSize: geometry.size, TheImage: UIImage(imageLiteralResourceName: "Lucoa"))
         }
-    }
-}
-
-extension ImageCell {
-    
-    func UItoImage(with PogImage: UIImage) -> Image {
-        let NewImage = Image(uiImage: PogImage)
-        return NewImage
     }
 }

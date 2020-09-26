@@ -10,8 +10,11 @@ import RealmSwift
 import Alamofire
 import SwiftyJSON
 
-struct TraceMoeAPI {
+class TraceMoeAPI: ObservableObject {
     
+    @Published var CirclePresenting:Bool = false
+    
+    @Published var DataIsSaved:Bool = false
     
     func API(ImageString: String){
         
@@ -20,7 +23,7 @@ struct TraceMoeAPI {
         let Headers: HTTPHeaders = [.accept("application/json")]
         
         //Actually Making the request
-        AF.request("https://trace.moe/api/search", method:.post, parameters: MyParameters, headers: Headers).responseJSON { response in
+        AF.request("https://trace.moe/api/search", method:.post, parameters: MyParameters, headers: Headers).responseJSON { [self] response in
             print("Working")
             
             if let Data = response.data{
@@ -66,6 +69,8 @@ struct TraceMoeAPI {
                 //                }
                 
                 print("Done")
+                self.DataIsSaved = true
+                self.CirclePresenting = false
                 
                 
                 
