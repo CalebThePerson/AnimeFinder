@@ -12,16 +12,28 @@ struct ContentView: View {
     
     @ObservedObject var API = TraceMoeAPI()
     @State private var Anime: Results<AnimeInfo> = realm.objects(AnimeInfo.self)
+    @State private var DetailViewShowing: Bool = false
     
     var body: some View {
         GeometryReader { geometry in
             ZStack{
-                //                VStack(alignment:.center, spacing: 0){
                 ScrollView(.vertical) {
-                    ForEach(Anime, id: \.Name){ anime in
-                        ImageCell(ScreenSize: geometry.size, TheImage: convertBase64ToImage(anime.ImageString))
+                    VStack(spacing:0) {
+                        ForEach(Anime, id: \.Name){ anime in
+                            Button(action: {
+                                self.DetailViewShowing = true
+                            }) {
+                                ImageCell(ScreenSize: geometry.size, TheImage: convertBase64ToImage(anime.ImageString))
+                            }.sheet(isPresented: self.$DetailViewShowing, content: {
+                                DetailView()
+                            })
+                        }
+                        
+                        
+                        if API.CirclePresenting == true{
+                            LoadingCircle()
+                        }
                     }
-                    //                    .frame(height: geometry.size.height)
                 }
                 .lineSpacing(0)
                 

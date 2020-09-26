@@ -37,7 +37,7 @@ struct FloatingMenu: View {
 
                 }) {
                     MenuItem(icon: "plus")
-                }.sheet(isPresented: $ShowingImagePicker, onDismiss: {self.TraceAPI.CirclePresenting=true; LoadImage(); self.showMenuItem1=false;self.showMenuItem2=false;self.showMenuItem3=false }) {
+                }.sheet(isPresented: $ShowingImagePicker, onDismiss: {self.TraceAPI.CirclePresenting=false; LoadImage(); self.showMenuItem1=false;self.showMenuItem2=false;self.showMenuItem3=false }) {
                     ImagePicker(image: self.$InputImage)
                 }
             }

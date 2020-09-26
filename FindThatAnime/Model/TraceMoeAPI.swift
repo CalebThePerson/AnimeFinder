@@ -17,7 +17,7 @@ class TraceMoeAPI: ObservableObject {
     @Published var DataIsSaved:Bool = false
     
     func API(ImageString: String){
-        
+        CirclePresenting=true
         //Paramerters and Headers
         let MyParameters = ["image":"\(ImageString)"]
         let Headers: HTTPHeaders = [.accept("application/json")]
