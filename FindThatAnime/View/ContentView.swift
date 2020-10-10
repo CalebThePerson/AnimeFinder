@@ -12,36 +12,57 @@ struct ContentView: View {
     
     @ObservedObject var API = TraceMoeAPI()
     @State private var Anime: Results<AnimeInfo> = realm.objects(AnimeInfo.self)
+    
+    @State var SelectedAnime: AnimeInfo?
+    
     @State private var DetailViewShowing: Bool = false
+//    @State private var SelectedAnime: Int = 0
     
     var body: some View {
-        GeometryReader { geometry in
-            ZStack{
-                ScrollView(.vertical) {
-                    VStack(spacing:0) {
-                        ForEach(Anime, id: \.Name){ anime in
-                            Button(action: {
-                                self.DetailViewShowing = true
-                            }) {
-                                ImageCell(ScreenSize: geometry.size, TheImage: convertBase64ToImage(anime.ImageString))
-                            }.sheet(isPresented: self.$DetailViewShowing, content: {
-                                DetailView()
-                            })
-                        }
-                        
-                        
-                        if API.CirclePresenting == true{
-                            LoadingCircle()
+        if Anime.count != 0 {
+            GeometryReader { geometry in
+                ZStack{
+                    ScrollView(.vertical) {
+                        VStack(spacing:0) {
+                            ForEach(Anime, id: \.Name){ anime in
+                                Button(action: {
+                                    self.SelectedAnime = anime
+                                    self.DetailViewShowing.toggle()
+                                }) {
+                                    ImageCell(ScreenSize: geometry.size, TheImage: convertBase64ToImage(anime.ImageString))
+                                    
+                                        
+                                    
+                                }.sheet(isPresented: self.$DetailViewShowing, onDismiss: {self.DetailViewShowing = false; self.SelectedAnime = nil}){
+                                    DetailView(Anime: $SelectedAnime)
+
+
+                                }.onAppear(perform: {
+//                                    Testing(with: anime)
+                                })
+                            }
+                            
+                            
+                            if API.CirclePresenting == true{
+                                LoadingCircle(TheAPI: API)
+                                    .padding(.top)
+                            }
                         }
                     }
+                    .lineSpacing(0)
+                    
+                    FloatingMenu(TraceAPI: API)
+                        .offset(x:150, y:-10)
                 }
-                .lineSpacing(0)
-                
-                FloatingMenu(TraceAPI: API)
-                    .offset(x:150, y:-10)
             }
+            .edgesIgnoringSafeArea(.all)
         }
-        .edgesIgnoringSafeArea(.all)
+        
+        
+        else {
+            FloatingMenu(TraceAPI: API)
+                .offset(x:150, y:-10)
+        }
     }
 }
 
@@ -56,6 +77,10 @@ extension ContentView {
         let dataDecoded : Data = Data(base64Encoded: str, options: .ignoreUnknownCharacters)!
         let decodedimage = UIImage(data: dataDecoded)
         return decodedimage!
+    }
+    
+    func Testing(with Anime: AnimeInfo){
+        print(Anime)
     }
     
 }

@@ -7,7 +7,7 @@ target 'FindThatAnime' do
 
   # Pods for FindThatAnime
     pod 'Alamofire', '~> 5.2'
-pod 'RealmSwift', :git => 'https://github.com/realm/realm-cocoa.git', :branch => 'master'
+pod 'RealmSwift'
       pod 'SwiftyJSON'
 pod 'Apollo', '0.33.0-beta1'
 

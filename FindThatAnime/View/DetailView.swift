@@ -7,14 +7,29 @@
 
 import SwiftUI
 
+
 struct DetailView: View {
+    @Binding var Anime: AnimeInfo?
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        if Anime?.Name != nil {
+            GeometryReader { geometry in
+                ScrollView(.vertical){
+                    VStack{
+                        Spacer()
+                        Text(Anime!.Name)
+                            .frame(alignment:.center)
+                        Text("Episode:\(Anime!.Episode)")
+                            .frame(alignment:.center)
+                    }
+                }
+            }
+        }
     }
 }
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView()
+        DetailView(Anime: .constant(AnimeInfo()))
     }
 }

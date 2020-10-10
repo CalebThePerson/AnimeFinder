@@ -13,6 +13,7 @@ import RealmSwift
 struct TestingWithList: View {
     @ObservedObject var API = TraceMoeAPI()
     @State private var Anime: Results<AnimeInfo> = realm.objects(AnimeInfo.self)
+    @State private var Showing = false
     
     
     var body: some View {
@@ -21,9 +22,15 @@ struct TestingWithList: View {
             ZStack {
                 VStack(alignment: .center, spacing: 0) {
                     List(Anime){
-                        anime in ImageCell(ScreenSize: geometry.size, TheImage: convertBase64ToImage(anime.ImageString))
+                        anime in
+                        Button(action: {
+                            self.Showing = true
+                        }) {
+                            ImageCell(ScreenSize: geometry.size, TheImage: convertBase64ToImage(anime.ImageString))
+                        } .sheet(isPresented: self.$Showing, onDismiss: {self.Showing = false}) {
+                        }
                         if API.CirclePresenting == true {
-                            LoadingCircle()
+                            LoadingCircle(TheAPI: API)
                         }
                     }
                     .frame(width: geometry.size.width, height: geometry.size.height)

@@ -11,6 +11,7 @@ struct LoadingCircle: View {
     
     //How we keep track of the indicator
     @State var Degrees = 0.0
+    var TheAPI: TraceMoeAPI
     
     var body: some View {
         ZStack {
@@ -19,6 +20,8 @@ struct LoadingCircle: View {
                 .stroke(Color.gray, lineWidth: 5.0)
                 .frame(width: 120, height:120)
                 .rotationEffect(Angle(degrees:-90))
+            
+            Text("\(TheAPI.Percetage)%")
             
             //Create a dynamic circle dependent on teh degree state
             Circle()
@@ -36,7 +39,7 @@ struct LoadingCircle: View {
 
 struct LoadingCircle_Previews: PreviewProvider {
     static var previews: some View {
-        LoadingCircle()
+        LoadingCircle(TheAPI: TraceMoeAPI())
     }
 }
 

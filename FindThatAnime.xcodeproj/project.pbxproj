@@ -24,6 +24,7 @@
 		C32FDC422516DFCF00244666 /* FloatingMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32FDC062516DE1800244666 /* FloatingMenu.swift */; };
 		C32FDC462516DFD100244666 /* ImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32FDC072516DE1800244666 /* ImageCell.swift */; };
 		C32FDC522516E07700244666 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = C32FDC512516E07700244666 /* schema.json */; };
+		C360C80925314C1C00D967D0 /* TestingDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = C360C80825314C1C00D967D0 /* TestingDetails.swift */; };
 		C373CB3B251D57A400E0819F /* TestingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C373CB3A251D57A400E0819F /* TestingCell.swift */; };
 		C373CB40251D5B7D00E0819F /* TestingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C373CB3F251D5B7D00E0819F /* TestingView.swift */; };
 		C373CB45251D942800E0819F /* LoadingCircle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C373CB44251D942700E0819F /* LoadingCircle.swift */; };
@@ -82,6 +83,7 @@
 		C32FDC2F2516DF3A00244666 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		C32FDC342516DF3D00244666 /* TraceMoeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceMoeAPI.swift; sourceTree = "<group>"; };
 		C32FDC512516E07700244666 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = "<group>"; };
+		C360C80825314C1C00D967D0 /* TestingDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingDetails.swift; sourceTree = "<group>"; };
 		C373CB3A251D57A400E0819F /* TestingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingCell.swift; sourceTree = "<group>"; };
 		C373CB3F251D5B7D00E0819F /* TestingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestingView.swift; sourceTree = "<group>"; };
 		C373CB44251D942700E0819F /* LoadingCircle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingCircle.swift; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 				C373CB3F251D5B7D00E0819F /* TestingView.swift */,
 				C373CB3A251D57A400E0819F /* TestingCell.swift */,
 				C373CB50251DA19100E0819F /* TestingWithList.swift */,
+				C360C80825314C1C00D967D0 /* TestingDetails.swift */,
 			);
 			path = TestingViews;
 			sourceTree = "<group>";
@@ -265,8 +268,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C32FDBF02516DDDA00244666 /* Build configuration list for PBXNativeTarget "FindThatAnime" */;
 			buildPhases = (
-				C32FDC4A2516E03500244666 /* Apollo APi struff */,
 				3A18D071C29B5273F57F342D /* [CP] Check Pods Manifest.lock */,
+				C32FDC4A2516E03500244666 /* Apollo APi struff */,
 				C32FDBC22516DDD600244666 /* Sources */,
 				C32FDBC32516DDD600244666 /* Frameworks */,
 				C32FDBC42516DDD600244666 /* Resources */,
@@ -522,6 +525,7 @@
 				C32FDC252516DF2500244666 /* AnimeInfo.swift in Sources */,
 				C32FDBCA2516DDD600244666 /* AppDelegate.swift in Sources */,
 				C373CB3B251D57A400E0819F /* TestingCell.swift in Sources */,
+				C360C80925314C1C00D967D0 /* TestingDetails.swift in Sources */,
 				C373CB40251D5B7D00E0819F /* TestingView.swift in Sources */,
 				C32FDC462516DFD100244666 /* ImageCell.swift in Sources */,
 				C32FDC2A2516DF2600244666 /* SaveAndSuch.swift in Sources */,
