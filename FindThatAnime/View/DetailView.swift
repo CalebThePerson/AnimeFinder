@@ -18,12 +18,24 @@ struct DetailView: View {
                     VStack{
                         Spacer()
                         Text(Anime!.Name)
+                            .multilineTextAlignment(.center)
                             .frame(alignment:.center)
+                        
                         Text("Episode:\(Anime!.Episode)")
                             .frame(alignment:.center)
+                        
+                        Imagesub(Screensize: geometry.size, DaImage: convertBase64ToImage(Anime!.ImageString))
+                            .frame(alignment:.center)
+                        
+                        Spacer()
+                        Text("Description")
+                        Text(Anime!.Description)
+                            .multilineTextAlignment(.center)
+                            .frame(width: geometry.size.width - 20)
+
                     }
-                }
-            }
+                }.frame(width: geometry.size.width)
+            }.frame(alignment: .center)
         }
     }
 }
@@ -31,5 +43,13 @@ struct DetailView: View {
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
         DetailView(Anime: .constant(AnimeInfo()))
+    }
+}
+
+extension DetailView{
+    func convertBase64ToImage(_ str: String) -> UIImage {
+        let dataDecoded : Data = Data(base64Encoded: str, options: .ignoreUnknownCharacters)!
+        let decodedimage = UIImage(data: dataDecoded)
+        return decodedimage!
     }
 }

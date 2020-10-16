@@ -1,10 +1,3 @@
-//
-//  TraceMoeAPI.swift
-//  
-//
-//  Created by Caleb Wheeler on 9/19/20.
-//
-
 import Foundation
 import RealmSwift
 import Alamofire
@@ -12,6 +5,7 @@ import SwiftyJSON
 
 class TraceMoeAPI: ObservableObject {
     
+    var AniListapi = AniListAPI()
     @Published var CirclePresenting:Bool = false
     @Published var Percetage:Int = 0
     
@@ -52,37 +46,47 @@ class TraceMoeAPI: ObservableObject {
                 
                 Percetage = 42
                 
-//
-//                guard let NewData = self.AnieListApi.ObtainData(AnimeID: AnilistId) else {return}
-//                print("Didnt fail")
-//                let TheStuff = self.Disection(TheData: NewData)
+                self.AniListapi.ObtainData(AnimeID: AnilistId) { (NewData) in
+                    //                    print(NewData)
+                    let TheStuff = self.Disection(TheData: NewData)
+                    let Info = AnimeInfo()
+                    Percetage = 49
+                    Info.Name = name
+                    Percetage = 56
+                    Info.Episode = episode
+                    Percetage = 63
+                    Info.MalID = MalID
+                    Percetage = 70
+                    Info.AniListID = AnilistId
+                    Percetage = 77
+                    Info.ImageString = ImageString
+                    Percetage = 84
+                    Info.VideoURL = "https://media.trace.moe/video/$\(AnilistId)/${encodeURIComponent\(filename)}?t=$\(at)&token=$\(tokenthumb)"
+                    Percetage = 91
+                    
+                    Info.Description = TheStuff["Description"] as! String
+                    //                    Info.Populatiry = TheStuff["Popularity"] as! String
+                    
+                    
+                    Save(Anime: Info)
+                    Percetage = 100
+                    print("Done")
+                    self.DataIsSaved = true
+                    self.CirclePresenting = false
+                }
+                //
+                //                guard let NewData = self.AnieListApi.ObtainData(AnimeID: AnilistId) else {return}
+                //                print("Didnt fail")
+                //                let TheStuff = self.Disection(TheData: NewData)
                 
                 //Beggening to save them
                 
-                let Info = AnimeInfo()
-                Percetage = 49
-                Info.Name = name
-                Percetage = 56
-                Info.Episode = episode
-                Percetage = 63
-                Info.MalID = MalID
-                Percetage = 70
-                Info.AniListID = AnilistId
-                Percetage = 77
-                Info.ImageString = ImageString
-                Percetage = 84
-                Info.VideoURL = "https://media.trace.moe/video/$\(AnilistId)/${encodeURIComponent\(filename)}?t=$\(at)&token=$\(tokenthumb)"
-                Percetage = 91
-//                Info.Description = TheStuff["Description"] as! String
-//                Info.Populatiry = TheStuff["Popularity"] as! String
+                
+                
                 //                print(Info.VideoURL)
                 
-                Save(Anime: Info)
                 
-                Percetage = 100
-                print("Done")
-                self.DataIsSaved = true
-                self.CirclePresenting = false
+                
                 
                 
                 
@@ -97,30 +101,44 @@ class TraceMoeAPI: ObservableObject {
 }
 extension TraceMoeAPI {
     
-//    func Disection(TheData: QueryQuery.Data) -> [(String):(Any)] {
+    func Disection(TheData: QueryQuery.Data) -> [(String):(Any)] {
+        
+        var Poggers = [(String):(Any)]()
+        
+        
+        
+        var Description = (TheData.media?.description)! as String
 //
-//        var Poggers = [(String):(Any)]()
+        let removale = ["<br> <br>", "<br>", "<b/>", "<br><br>","</b>"]
 //
-//
-//
-//        let Description = TheData.media?.description
-//        let StartDate = TheData.media?.startDate
-//        let Populatiry = TheData.media?.popularity
-//
-//        var Genres = List<String>()
-//        for num in 0...(TheData.media?.genres!.count)! {
-//            Genres.append((TheData.media?.genres![num])!)
+//        for word in removale {
+//            if let range = Description.range(of: word) {
+//                Description.removeSubrange(range)
+//                print(word)
+//            }
 //        }
-//
-//        let SiteUrl = TheData.media?.siteUrl
-//
-//        Poggers["Description"] = Description
-//        Poggers["Popularity"] = Populatiry
-//        Poggers["GenreArray"] = Genres
-//        Poggers["SiteURL"] = SiteUrl
-//
-//        return Poggers
-//
-//    }
+        
+        for word in removale{
+            Description = Description.replacingOccurrences(of: word, with: "")
+        }
+        print(Description)
+        
+        let StartDate = TheData.media?.startDate
+        let Populatiry = TheData.media?.popularity
+        
+        var Genres = List<String>()
+        //        for num in 0...(TheData.media?.genres!.count)! {
+        //            Genres.append((TheData.media?.genres![num])!)
+        //        }
+        
+        let SiteUrl = TheData.media?.siteUrl
+        
+        Poggers["Description"] = Description
+        Poggers["Popularity"] = Populatiry
+        Poggers["GenreArray"] = Genres
+        Poggers["SiteURL"] = SiteUrl
+        
+        return Poggers
+        
+    }
 }
-

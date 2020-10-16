@@ -9,7 +9,7 @@ import UIKit
 import Apollo
 import RealmSwift
 
-//let apollo = ApolloClient(url: URL(string: "https://graphql.anilist.co")!)
+let GraphClient = ApolloClient(url: URL(string: "https://graphql.anilist.co")!)
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {

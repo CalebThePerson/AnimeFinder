@@ -7,6 +7,8 @@
 
 import SwiftUI
 import RealmSwift
+//Bugs
+//WHenever you dismiss without selecting an image it uses teh last saved image??
 
 struct ContentView: View {
     
@@ -16,7 +18,6 @@ struct ContentView: View {
     @State var SelectedAnime: AnimeInfo?
     
     @State private var DetailViewShowing: Bool = false
-//    @State private var SelectedAnime: Int = 0
     
     var body: some View {
         if Anime.count != 0 {
@@ -33,7 +34,7 @@ struct ContentView: View {
                                     
                                         
                                     
-                                }.sheet(isPresented: self.$DetailViewShowing, onDismiss: {self.DetailViewShowing = false; self.SelectedAnime = nil}){
+                                }.sheet(isPresented: self.$DetailViewShowing, onDismiss: {self.DetailViewShowing = false}){
                                     DetailView(Anime: $SelectedAnime)
 
 
@@ -84,25 +85,4 @@ extension ContentView {
     }
     
 }
-//MARK: - Useless section poggers
 
-class BindableResults<AnimeInfo>: ObservableObject where AnimeInfo: RealmSwift.RealmCollectionValue {
-    
-    var results: Results<AnimeInfo>
-    private var token: NotificationToken!
-    
-    init(results: Results<AnimeInfo>) {
-        self.results = results
-        lateInit()
-    }
-    
-    func lateInit() {
-        token = results.observe { [weak self] _ in
-            self?.objectWillChange.send()
-        }
-    }
-    
-    deinit {
-        token.invalidate()
-    }
-}
