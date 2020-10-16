@@ -105,18 +105,9 @@ extension TraceMoeAPI {
         
         var Poggers = [(String):(Any)]()
         
-        
-        
         var Description = (TheData.media?.description)! as String
-//
         let removale = ["<br> <br>", "<br>", "<b/>", "<br><br>","</b>"]
-//
-//        for word in removale {
-//            if let range = Description.range(of: word) {
-//                Description.removeSubrange(range)
-//                print(word)
-//            }
-//        }
+        
         
         for word in removale{
             Description = Description.replacingOccurrences(of: word, with: "")
@@ -127,9 +118,10 @@ extension TraceMoeAPI {
         let Populatiry = TheData.media?.popularity
         
         var Genres = List<String>()
-        //        for num in 0...(TheData.media?.genres!.count)! {
-        //            Genres.append((TheData.media?.genres![num])!)
-        //        }
+        
+        for genre in TheData.media?.genres as [String] {
+            Genres.append(genre)
+        }
         
         let SiteUrl = TheData.media?.siteUrl
         
