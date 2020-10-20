@@ -12,7 +12,6 @@ import RealmSwift
 
 class AnimeInfo: Object, Identifiable {
     //The variables we are saving to the realm file
-//    var Id: UUID = UUID()
     @objc dynamic var Name: String = ""
     @objc dynamic var ImageString: String = ""
     @objc dynamic var Episode: Int = 0
@@ -22,5 +21,6 @@ class AnimeInfo: Object, Identifiable {
     @objc dynamic var Description: String = ""
     @objc dynamic var Populatiry: String = ""
     @objc dynamic var SiteURL: String = ""
+    var genres = List<Genres>()
     
 }

@@ -47,7 +47,6 @@ class TraceMoeAPI: ObservableObject {
                 Percetage = 42
                 
                 self.AniListapi.ObtainData(AnimeID: AnilistId) { (NewData) in
-                    //                    print(NewData)
                     let TheStuff = self.Disection(TheData: NewData)
                     let Info = AnimeInfo()
                     Percetage = 49
@@ -64,6 +63,12 @@ class TraceMoeAPI: ObservableObject {
                     Info.VideoURL = "https://media.trace.moe/video/$\(AnilistId)/${encodeURIComponent\(filename)}?t=$\(at)&token=$\(tokenthumb)"
                     Percetage = 91
                     
+                    for genre in NewData.media?.genres as [String]{
+                        let RealmGenres = Genres()
+                        RealmGenres.genre = genre
+                        Info.genres.append(RealmGenres)
+                    }
+                    
                     Info.Description = TheStuff["Description"] as! String
                     //                    Info.Populatiry = TheStuff["Popularity"] as! String
                     
@@ -74,10 +79,6 @@ class TraceMoeAPI: ObservableObject {
                     self.DataIsSaved = true
                     self.CirclePresenting = false
                 }
-                //
-                //                guard let NewData = self.AnieListApi.ObtainData(AnimeID: AnilistId) else {return}
-                //                print("Didnt fail")
-                //                let TheStuff = self.Disection(TheData: NewData)
                 
                 //Beggening to save them
                 
@@ -112,25 +113,32 @@ extension TraceMoeAPI {
         for word in removale{
             Description = Description.replacingOccurrences(of: word, with: "")
         }
-        print(Description)
+//        print(Description)
         
         let StartDate = TheData.media?.startDate
         let Populatiry = TheData.media?.popularity
         
-        var Genres = List<String>()
+        var TheGenres = List<String>()
+        
+        //Yikes Bad code alert
+        let RealmGenres = Genres()
         
         for genre in TheData.media?.genres as [String] {
-            Genres.append(genre)
+            TheGenres.append(genre)
+            RealmGenres.genre = genre
         }
+        print(RealmGenres)
         
         let SiteUrl = TheData.media?.siteUrl
         
         Poggers["Description"] = Description
         Poggers["Popularity"] = Populatiry
-        Poggers["GenreArray"] = Genres
+        Poggers["GenreArray"] = RealmGenres
         Poggers["SiteURL"] = SiteUrl
         
         return Poggers
         
     }
+    
+
 }

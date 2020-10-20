@@ -32,6 +32,11 @@ struct DetailView: View {
                         Text(Anime!.Description)
                             .multilineTextAlignment(.center)
                             .frame(width: geometry.size.width - 20)
+                            .fixedSize(horizontal: false, vertical: true)
+                        
+                        Spacer()
+                        
+                        GenreView(GenreArray: Anime!.genres)
 
                     }
                 }.frame(width: geometry.size.width)
