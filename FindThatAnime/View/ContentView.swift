@@ -25,7 +25,7 @@ struct ContentView: View {
                 ZStack{
                     ScrollView(.vertical) {
                         VStack(spacing:0) {
-                            ForEach(Anime, id: \.Name){ anime in
+                            ForEach(Anime, id: \.Id){ anime in
                                 Button(action: {
                                     self.SelectedAnime = anime
                                     self.DetailViewShowing.toggle()

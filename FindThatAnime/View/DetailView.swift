@@ -19,10 +19,14 @@ struct DetailView: View {
                         Spacer()
                         Text(Anime!.Name)
                             .multilineTextAlignment(.center)
+                            .fixedSize(horizontal: false, vertical: true)
                             .frame(alignment:.center)
                         
                         Text("Episode:\(Anime!.Episode)")
                             .frame(alignment:.center)
+                        
+                        Text("Similarity:\(Anime!.Similarity * 100, specifier: "%.f")%")
+                            .frame(alignment: .center)
                         
                         Imagesub(Screensize: geometry.size, DaImage: convertBase64ToImage(Anime!.ImageString))
                             .frame(alignment:.center)

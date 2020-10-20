@@ -37,6 +37,7 @@ class TraceMoeAPI: ObservableObject {
                 Percetage = 28
                 guard let AnilistId = json["docs"][0]["anilist_id"].int else {return}
                 guard let MalID = json["docs"][0]["mal_id"].int else {return}
+                guard let Similarity = json["docs"][0]["similarity"].double else {return}
                 Percetage = 35
                 
                 //The Video Variables
@@ -63,6 +64,8 @@ class TraceMoeAPI: ObservableObject {
                     Info.VideoURL = "https://media.trace.moe/video/$\(AnilistId)/${encodeURIComponent\(filename)}?t=$\(at)&token=$\(tokenthumb)"
                     Percetage = 91
                     
+                    Info.Similarity = Similarity
+                    //Looping through the genres and adding it
                     for genre in NewData.media?.genres as [String]{
                         let RealmGenres = Genres()
                         RealmGenres.genre = genre
@@ -70,7 +73,10 @@ class TraceMoeAPI: ObservableObject {
                     }
                     
                     Info.Description = TheStuff["Description"] as! String
-                    //                    Info.Populatiry = TheStuff["Popularity"] as! String
+                    Info.Populatiry = TheStuff["Popularity"] as! Int
+                    
+                    //Giving it a unique id so that it doesn't break when using the same name anime
+                    Info.Id = UUID().uuidString
                     
                     
                     Save(Anime: Info)
@@ -79,17 +85,6 @@ class TraceMoeAPI: ObservableObject {
                     self.DataIsSaved = true
                     self.CirclePresenting = false
                 }
-                
-                //Beggening to save them
-                
-                
-                
-                //                print(Info.VideoURL)
-                
-                
-                
-                
-                
                 
                 //https://media.trace.moe/video/${anilist_id}/${encodeURIComponent(filename)}?t=${at}&token=${tokenthumb}`
                 
@@ -105,40 +100,26 @@ extension TraceMoeAPI {
     func Disection(TheData: QueryQuery.Data) -> [(String):(Any)] {
         
         var Poggers = [(String):(Any)]()
-        
+        //Loping through and removing the annoying <b> and what not
         var Description = (TheData.media?.description)! as String
-        let removale = ["<br> <br>", "<br>", "<b/>", "<br><br>","</b>"]
+        let removale = ["<br> <br>", "<br>", "<b/>", "<br><br>","</b>","<i>","</i>","<b>"]
         
         
         for word in removale{
             Description = Description.replacingOccurrences(of: word, with: "")
         }
-//        print(Description)
         
         let StartDate = TheData.media?.startDate
         let Populatiry = TheData.media?.popularity
-        
-        var TheGenres = List<String>()
-        
-        //Yikes Bad code alert
-        let RealmGenres = Genres()
-        
-        for genre in TheData.media?.genres as [String] {
-            TheGenres.append(genre)
-            RealmGenres.genre = genre
-        }
-        print(RealmGenres)
-        
         let SiteUrl = TheData.media?.siteUrl
         
         Poggers["Description"] = Description
         Poggers["Popularity"] = Populatiry
-        Poggers["GenreArray"] = RealmGenres
         Poggers["SiteURL"] = SiteUrl
         
         return Poggers
         
     }
     
-
+    
 }

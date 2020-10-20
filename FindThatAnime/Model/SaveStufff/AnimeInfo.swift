@@ -12,6 +12,7 @@ import RealmSwift
 
 class AnimeInfo: Object, Identifiable {
     //The variables we are saving to the realm file
+    @objc dynamic var Id: String = ""
     @objc dynamic var Name: String = ""
     @objc dynamic var ImageString: String = ""
     @objc dynamic var Episode: Int = 0
@@ -19,8 +20,9 @@ class AnimeInfo: Object, Identifiable {
     @objc dynamic var MalID: Int = 0
     @objc dynamic var VideoURL: String = ""
     @objc dynamic var Description: String = ""
-    @objc dynamic var Populatiry: String = ""
+    @objc dynamic var Populatiry: Int = 0
     @objc dynamic var SiteURL: String = ""
+    @objc dynamic var Similarity: Double = 0.0
     var genres = List<Genres>()
     
 }

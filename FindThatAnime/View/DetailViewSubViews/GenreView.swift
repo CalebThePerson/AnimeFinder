@@ -13,7 +13,7 @@ struct GenreView: View {
     
     var body: some View {
         GeometryReader { geo in
-            ScrollView(.horizontal){
+            ScrollView(.horizontal, showsIndicators: false){
                 HStack {
                     ForEach(0..<GenreArray.count) { genre in
                         Spacer()
@@ -22,7 +22,7 @@ struct GenreView: View {
                     }
                 }
             }
-            .frame(alignment: .center)
+            .frame(height: 20 ,alignment: .center)
         }
     }
 }
