@@ -16,36 +16,45 @@ struct DetailView: View {
             GeometryReader { geometry in
                 ScrollView(.vertical){
                     VStack{
-                        Spacer()
-                        Text(Anime!.Name)
-                            .multilineTextAlignment(.center)
-                            .fixedSize(horizontal: false, vertical: true)
-                            .frame(alignment:.center)
+                        //Creating a group because i apparently can't have more than 10 views -_-
+                        Group {
+                            Spacer()
+                            Text(Anime!.Name)
+                                .multilineTextAlignment(.center)
+                                .fixedSize(horizontal: false, vertical: true)
+                                .frame(alignment:.center)
+                            
+                            
+                            Text("Episode:\(Anime!.Episode)")
+                                .frame(alignment:.center)
+                            
+                            Text("Similarity:\(Anime!.Similarity * 100, specifier: "%.f")%")
+                                .frame(alignment: .center)
+                            
+                            Imagesub(Screensize: geometry.size, DaImage: convertBase64ToImage(Anime!.ImageString))
+                                .frame(alignment:.center)
+                            
+                            Spacer()
+                            Text("Description")
+                            Text(Anime!.Description)
+                                .multilineTextAlignment(.center)
+                                .frame(width: geometry.size.width - 20)
+                                .fixedSize(horizontal: false, vertical: true)
+                                .padding(.bottom)
+                            
+                            
+                            GenreView(GenreArray: Anime!.genres)
+                                .padding(.bottom)
+                            
+                        }
                         
-                        Text("Episode:\(Anime!.Episode)")
-                            .frame(alignment:.center)
+                        Text("Likes: \(Anime!.Popularity)")
                         
-                        Text("Similarity:\(Anime!.Similarity * 100, specifier: "%.f")%")
-                            .frame(alignment: .center)
-                        
-                        Imagesub(Screensize: geometry.size, DaImage: convertBase64ToImage(Anime!.ImageString))
-                            .frame(alignment:.center)
-                        
-                        Spacer()
-                        Text("Description")
-                        Text(Anime!.Description)
-                            .multilineTextAlignment(.center)
-                            .frame(width: geometry.size.width - 20)
-                            .fixedSize(horizontal: false, vertical: true)
-                        
-                        Spacer()
-                        
-                        GenreView(GenreArray: Anime!.genres)
-
                     }
                 }.frame(width: geometry.size.width)
             }.frame(alignment: .center)
         }
+        
     }
 }
 

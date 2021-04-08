@@ -20,7 +20,7 @@ class AnimeInfo: Object, Identifiable {
     @objc dynamic var MalID: Int = 0
     @objc dynamic var VideoURL: String = ""
     @objc dynamic var Description: String = ""
-    @objc dynamic var Populatiry: Int = 0
+    @objc dynamic var Popularity: Int = 0
     @objc dynamic var SiteURL: String = ""
     @objc dynamic var Similarity: Double = 0.0
     var genres = List<Genres>()

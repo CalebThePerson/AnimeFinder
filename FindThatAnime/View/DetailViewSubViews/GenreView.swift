@@ -17,7 +17,11 @@ struct GenreView: View {
                 HStack {
                     ForEach(0..<GenreArray.count) { genre in
                         Spacer()
-                        Text(GenreArray[genre].genre)
+                        ZStack{
+                            Text(GenreArray[genre].genre)
+                            
+
+                        }
                         Spacer()
                     }
                 }
@@ -32,3 +36,5 @@ struct GenreView_Previews: PreviewProvider {
         GenreView(GenreArray: AnimeInfo().genres)
     }
 }
+
+

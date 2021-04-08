@@ -73,7 +73,7 @@ class TraceMoeAPI: ObservableObject {
                     }
                     
                     Info.Description = TheStuff["Description"] as! String
-                    Info.Populatiry = TheStuff["Popularity"] as! Int
+                    Info.Popularity = TheStuff["Popularity"] as! Int
                     
                     //Giving it a unique id so that it doesn't break when using the same name anime
                     Info.Id = UUID().uuidString
@@ -84,6 +84,8 @@ class TraceMoeAPI: ObservableObject {
                     print("Done")
                     self.DataIsSaved = true
                     self.CirclePresenting = false
+                    
+                    print("https://media.trace.moe/video/${\(AnilistId)}/${encodeURIComponent(\(filename))}?t=${\(at)}&token=$\(tokenthumb)")
                 }
                 
                 //https://media.trace.moe/video/${anilist_id}/${encodeURIComponent(filename)}?t=${at}&token=${tokenthumb}`

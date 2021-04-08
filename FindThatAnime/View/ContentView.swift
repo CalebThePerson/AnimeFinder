@@ -37,10 +37,10 @@ struct ContentView: View {
                                 }.sheet(isPresented: self.$DetailViewShowing, onDismiss: {self.DetailViewShowing = false}){
                                     DetailView(Anime: $SelectedAnime)
 
-
-                                }.onAppear(perform: {
-//                                    Testing(with: anime)
-                                })
+                                }
+//                                }.onAppear(perform: {
+////                                    Testing(with: anime)
+//                                })
                             }
                             
                             

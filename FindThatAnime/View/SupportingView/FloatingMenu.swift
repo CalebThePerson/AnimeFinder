@@ -30,13 +30,13 @@ struct FloatingMenu: View {
                 MenuItem(icon: "gear")
             }
             if showMenuItem2 {
-                MenuItem(icon: "minus")
+                MenuItem(icon: "book")
             }
             if showMenuItem3 {
                 Button(action: { self.ShowingImagePicker.toggle()
 
                 }) {
-                    MenuItem(icon: "plus")
+                    MenuItem(icon: "tv")
                 }.sheet(isPresented: $ShowingImagePicker, onDismiss: {self.TraceAPI.CirclePresenting=false; LoadImage(); self.showMenuItem1=false;self.showMenuItem2=false;self.showMenuItem3=false }) {
                     ImagePicker(image: self.$InputImage)
                 }

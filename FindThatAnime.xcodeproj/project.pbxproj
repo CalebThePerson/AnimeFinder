@@ -213,7 +213,7 @@
 				C373CB49251D965800E0819F /* TestingViews */,
 				C32FDC052516DE1800244666 /* ContentView.swift */,
 				C39A3D7A251FCDA000522B71 /* DetailView.swift */,
-				C3DFB9F12533F78300EF1E20 /* ContentSub */,
+				C3DFB9F12533F78300EF1E20 /* SupportingView */,
 				C3DFB9EB2533F58000EF1E20 /* DetailViewSubViews */,
 			);
 			path = View;
@@ -269,14 +269,14 @@
 			path = DetailViewSubViews;
 			sourceTree = "<group>";
 		};
-		C3DFB9F12533F78300EF1E20 /* ContentSub */ = {
+		C3DFB9F12533F78300EF1E20 /* SupportingView */ = {
 			isa = PBXGroup;
 			children = (
 				C32FDC072516DE1800244666 /* ImageCell.swift */,
 				C373CB44251D942700E0819F /* LoadingCircle.swift */,
 				C32FDC062516DE1800244666 /* FloatingMenu.swift */,
 			);
-			path = ContentSub;
+			path = SupportingView;
 			sourceTree = "<group>";
 		};
 		E1CECE9E5B56FF42DBCBFA51 /* Frameworks */ = {
@@ -743,7 +743,7 @@
 				DEVELOPMENT_TEAM = MMZA244CU5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = FindThatAnime/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -766,7 +766,7 @@
 				DEVELOPMENT_TEAM = MMZA244CU5;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = FindThatAnime/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
